@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Wrench, Package, Calendar, Users, BarChart3, LayoutDashboard, LogOut, User } from 'lucide-react';
+import { Wrench, Package, Calendar, Users, BarChart3, LayoutDashboard, LogOut, User, Factory } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 
 interface LayoutProps {
@@ -22,6 +22,7 @@ export default function Layout({ children }: LayoutProps) {
     { path: '/equipment', label: 'Equipment', icon: Package },
     { path: '/requests', label: 'Requests', icon: Wrench },
     { path: '/teams', label: 'Teams', icon: Users },
+    { path: '/workcenters', label: 'Work Centers', icon: Factory },
     { path: '/calendar', label: 'Calendar', icon: Calendar },
     { path: '/reports', label: 'Reports', icon: BarChart3 },
   ];

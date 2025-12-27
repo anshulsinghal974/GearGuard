@@ -8,6 +8,7 @@ import EquipmentList from './pages/EquipmentList';
 import EquipmentDetail from './pages/EquipmentDetail';
 import MaintenanceRequests from './pages/MaintenanceRequests';
 import MaintenanceTeams from './pages/MaintenanceTeams';
+import WorkCenters from './pages/WorkCenters';
 import CalendarView from './pages/CalendarView';
 import Reports from './pages/Reports';
 
@@ -76,6 +77,16 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <MaintenanceTeams />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/workcenters"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <WorkCenters />
               </Layout>
             </ProtectedRoute>
           }

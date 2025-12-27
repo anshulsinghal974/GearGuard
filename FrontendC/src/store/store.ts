@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Equipment, MaintenanceTeam, User, MaintenanceRequest, Department } from '../types';
+import { Equipment, MaintenanceTeam, User, MaintenanceRequest, Department, WorkCenter } from '../types';
 
 interface StoreState {
   // Data
@@ -8,6 +8,7 @@ interface StoreState {
   users: User[];
   requests: MaintenanceRequest[];
   departments: Department[];
+  workCenters: WorkCenter[];
   
   // Actions
   addEquipment: (equipment: Equipment) => void;
@@ -30,6 +31,11 @@ interface StoreState {
   getRequestsByEquipment: (equipmentId: string) => MaintenanceRequest[];
   
   addDepartment: (department: Department) => void;
+  
+  addWorkCenter: (workCenter: WorkCenter) => void;
+  updateWorkCenter: (id: string, workCenter: Partial<WorkCenter>) => void;
+  deleteWorkCenter: (id: string) => void;
+  getWorkCenter: (id: string) => WorkCenter | undefined;
 }
 
 export const useStore = create<StoreState>((set, get) => ({
@@ -119,6 +125,27 @@ export const useStore = create<StoreState>((set, get) => ({
     { id: '2', name: 'IT' },
     { id: '3', name: 'Administration' },
     { id: '4', name: 'Logistics' },
+  ],
+  
+  workCenters: [
+    {
+      id: '1',
+      code: 'WC001',
+      tag: 'Assembly 1',
+      alternativeWorkCenterIds: [],
+      costPerHour: 50.00,
+      capacityTimeEfficiency: 100.00,
+      oeeTarget: 34.59,
+    },
+    {
+      id: '2',
+      code: 'WC002',
+      tag: 'Drill 1',
+      alternativeWorkCenterIds: [],
+      costPerHour: 75.00,
+      capacityTimeEfficiency: 100.00,
+      oeeTarget: 90.00,
+    },
   ],
   
   // Equipment actions
@@ -215,5 +242,22 @@ export const useStore = create<StoreState>((set, get) => ({
   addDepartment: (department) => set((state) => ({
     departments: [...state.departments, department],
   })),
+  
+  // Work Center actions
+  addWorkCenter: (workCenter) => set((state) => ({
+    workCenters: [...state.workCenters, workCenter],
+  })),
+  
+  updateWorkCenter: (id, workCenter) => set((state) => ({
+    workCenters: state.workCenters.map((wc) =>
+      wc.id === id ? { ...wc, ...workCenter } : wc
+    ),
+  })),
+  
+  deleteWorkCenter: (id) => set((state) => ({
+    workCenters: state.workCenters.filter((wc) => wc.id !== id),
+  })),
+  
+  getWorkCenter: (id) => get().workCenters.find((wc) => wc.id === id),
 }));
 

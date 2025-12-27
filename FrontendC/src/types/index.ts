@@ -56,3 +56,13 @@ export interface Department {
   name: string;
 }
 
+export interface WorkCenter {
+  id: string;
+  code: string;
+  tag: string;
+  alternativeWorkCenterIds: string[];
+  costPerHour: number;
+  capacityTimeEfficiency: number; // Percentage (0-100)
+  oeeTarget: number; // Overall Equipment Effectiveness Target (0-100)
+}
+
