@@ -47,6 +47,3 @@ Built as a fast, real-world MVP during an online hackathon.
 | **Anshul** | Frontend  | [github.com/anshulsinghal974](https://github.com/anshulsinghal974) |
 | **Vaibhavi** | Backend  | [github.com/vaibhavi089](https://github.com/vaibhavi089) |
 | **Durgesh** | Backend  | [github.com/itssDurgesh](https://github.com/itssDurgesh) |
-
-## 🏗️ Project Structure
-
