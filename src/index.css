@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* React Big Calendar custom styles */
+.rbc-calendar {
+  min-height: 600px;
+}
+
+.rbc-event {
+  padding: 2px 5px;
+  background-color: #3b82f6;
+  border-radius: 4px;
+}
+
+.rbc-event.rbc-selected {
+  background-color: #2563eb;
+}
+
+.rbc-today {
+  background-color: #eff6ff;
+}
+
